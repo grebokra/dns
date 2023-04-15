@@ -10,4 +10,4 @@ $TTL    604800
 ns01  IN  A  10.0.16.4
 
 host1 IN  A  10.0.16.5
-host2		IN  A  10.0.16.9
+host2 IN  A  10.0.16.9

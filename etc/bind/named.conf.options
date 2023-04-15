@@ -1,7 +1,9 @@
 options {
     directory "/var/cache/bind";
-    recursion no;
-    allow-recursion { none; };
-    dnssec-validation auto;
+    allow-query { any; };
+    recursion yes;
+    allow-recursion { any; };
+    dnssec-enable yes;
+    dnssec-validation yes;
     auth-nxdomain no;
 };
