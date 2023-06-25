@@ -1,15 +1,4 @@
-#!/bin/bash
-if [[ ${1:0:1} = '-' ]]; then
-  EXTRA_ARGS="$*"
-  set --
-elif [[ ${1} == named || ${1} == "$(command -v named)" ]]; then
-  EXTRA_ARGS="${*:2}"
-  set --
-fi
-
-if [[ -z ${1} ]]; then
-  echo "Starting named..."
-  exec "$(command -v named)" -u bind -g ${EXTRA_ARGS}
-else
-  exec "$@"
-fi
+#!/bin/sh
+echo "Starting named..."
+/usr/sbin/named -4 -p 53 -u named -c /etc/bind/named.conf -L named.log &
+tail -F /var/bind/named.log
